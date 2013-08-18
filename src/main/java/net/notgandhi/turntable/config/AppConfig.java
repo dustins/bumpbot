@@ -5,6 +5,7 @@
 package net.notgandhi.turntable.config;
 
 import net.notgandhi.turntable.BumpBot;
+import net.notgandhi.turntable.commands.AddSongCommand;
 import net.notgandhi.turntable.commands.CurrentCommand;
 import net.notgandhi.turntable.commands.LastCommand;
 import net.notgandhi.turntable.listeners.GreetingListener;
@@ -52,5 +53,10 @@ public class AppConfig {
     @Bean
     public LastCommand lastCommand() {
         return new LastCommand();
+    }
+
+    @Bean
+    public AddSongCommand addSongCommand() {
+        return new AddSongCommand();
     }
 }
