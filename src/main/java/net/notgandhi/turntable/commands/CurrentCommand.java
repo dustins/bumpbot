@@ -24,6 +24,10 @@ import static com.google.common.base.Strings.emptyToNull;
 public class CurrentCommand extends Command {
     public static final String NAME = "current";
 
+    public CurrentCommand(String name) {
+        super(name);
+    }
+
     public CurrentCommand() {
         super(NAME);
     }
