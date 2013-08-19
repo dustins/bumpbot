@@ -27,7 +27,7 @@ public class AddSongCommand extends Command {
 
     public AddSongCommand(String name) {
         super(name);
-        this.setRank(Rank.OWNER);
+        this.setRank(Rank.OWNER, Rank.MOD);
     }
 
     public AddSongCommand() {
@@ -69,7 +69,7 @@ public class AddSongCommand extends Command {
             variables.add(song.getArtist());
         }
 
-        String message = Joiner.on(" ").join(parts).concat("!");
+        String message = Joiner.on(" ").join(parts).concat(" to my playlist!");
         bot.speak(String.format(message, variables.toArray(new String[]{})));
     }
 
