@@ -8,6 +8,7 @@ import net.notgandhi.turntable.BumpBot;
 import net.notgandhi.turntable.commands.AddSongCommand;
 import net.notgandhi.turntable.commands.CurrentCommand;
 import net.notgandhi.turntable.commands.LastCommand;
+import net.notgandhi.turntable.commands.SkipCommand;
 import net.notgandhi.turntable.listeners.DJBuddyListener;
 import net.notgandhi.turntable.listeners.GreetingListener;
 import org.l3eta.tt.command.Command;
@@ -64,5 +65,10 @@ public class AppConfig {
     @Bean
     public AddSongCommand addSongCommand() {
         return new AddSongCommand();
+    }
+
+    @Bean
+    public SkipCommand skipCommand() {
+        return new SkipCommand();
     }
 }
