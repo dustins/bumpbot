@@ -28,9 +28,11 @@ public class GreetingListener extends EventListener {
     private String ignoreID;
 
     public GreetingListener() {
+        super();
     }
 
     public GreetingListener(String ignoreID) {
+        this();
         this.ignoreID = ignoreID;
     }
 
@@ -52,7 +54,7 @@ public class GreetingListener extends EventListener {
             public void run() {
                 bot.speak(String.format("Welcome to the room %s!", userName));
             }
-        }, 2, TimeUnit.SECONDS);
+        }, 1, TimeUnit.SECONDS);
 
         LOGGER.info("{} has joined the room!", event.getUser().getName());
     }
