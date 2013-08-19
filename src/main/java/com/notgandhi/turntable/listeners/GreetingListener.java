@@ -2,7 +2,7 @@
  * Copyright
  */
 
-package net.notgandhi.turntable.listeners;
+package com.notgandhi.turntable.listeners;
 
 import org.l3eta.tt.Bot;
 import org.l3eta.tt.event.Event.EventMethod;
@@ -12,7 +12,6 @@ import org.l3eta.tt.event.UserLeaveEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 

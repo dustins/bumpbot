@@ -6,18 +6,20 @@ Bumpbot is an implementation of a turntable.fm bot using Java.
 
 You'll need to have maven installed to build.
 
-1. Go to the project directory.
+1. Build & Install the l3eta turntable java API by following the directions at https://github.com/dustins/Turntable
+
+2. Go to the project directory.
 
     > \> cd /path/to/project
 
-2. Create an `src/main/resources/auth-credentials.properties` properties file. See
+3. Create an `src/main/resources/auth-credentials.properties` properties file. See
    `src/main/resources/auth-credentials.properties-dist` for more information.
 
-3. Build the project.
+4. Build the project.
 
     > \> mvn clean install
 
-4. Verify the project jars were created.
+5. Verify the project jars were created.
 
     > \> ls target bumpbot-*
 

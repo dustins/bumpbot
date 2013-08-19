@@ -2,7 +2,7 @@
  * Copyright
  */
 
-package net.notgandhi.turntable.commands;
+package com.notgandhi.turntable.commands;
 
 import org.l3eta.tt.User;
 import org.l3eta.tt.command.Command;

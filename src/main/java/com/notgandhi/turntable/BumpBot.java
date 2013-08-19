@@ -2,10 +2,9 @@
  * Copyright
  */
 
-package net.notgandhi.turntable;
+package com.notgandhi.turntable;
 
 import org.l3eta.tt.Bot;
-import org.l3eta.tt.User;
 
 /**
  * Class Description

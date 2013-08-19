@@ -2,7 +2,7 @@
  * Copyright
  */
 
-package net.notgandhi.turntable.commands;
+package com.notgandhi.turntable.commands;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Optional;

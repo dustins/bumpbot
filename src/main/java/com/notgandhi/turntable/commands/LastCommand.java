@@ -2,7 +2,7 @@
  * Copyright
  */
 
-package net.notgandhi.turntable.commands;
+package com.notgandhi.turntable.commands;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
@@ -22,15 +22,15 @@ import static com.google.common.base.Strings.emptyToNull;
  *
  * @author Dustin Sweigart <dustin@swigg.net>
  */
-public class AddSongCommand extends Command {
-    public static final String NAME = "add-song";
+public class LastCommand extends Command {
+    public static final String NAME = "last";
 
-    public AddSongCommand(String name) {
+    public LastCommand(String name) {
         super(name);
-        this.setRank(Rank.OWNER, Rank.MOD);
+        this.setRank(Rank.OWNER, Rank.MOD, Rank.USER);
     }
 
-    public AddSongCommand() {
+    public LastCommand() {
         this(NAME);
     }
 
@@ -38,14 +38,8 @@ public class AddSongCommand extends Command {
     public void execute(User user, String[] args, ChatEvent.ChatType type) {
         List<Song> songs = bot.getRoom().getSongLog().getList();
 
-        if (songs.size() < 1) {
-            bot.speak("Sorry, there are no songs to add.");
-            return;
-        }
-
-        if (bot.getRoom().getCurrentSong() == null && args.length == 0) {
-            bot.speak("Sorry, there is no playing song.");
-            return;
+        if (songs.size() < 2) {
+            bot.speak("Sorry, there were no previous songs.");
         }
 
         Song song = null;
@@ -56,12 +50,10 @@ public class AddSongCommand extends Command {
             return;
         }
 
-        bot.addSong(song.getID());
-
         List<String> parts = Lists.newArrayList();
         List<String> variables = Lists.newArrayList();
 
-        parts.add("Added `%s`");
+        parts.add("Last song played was`%s`");
         variables.add(song.getName());
 
         if (emptyToNull(song.getArtist()) != null) {
@@ -69,16 +61,22 @@ public class AddSongCommand extends Command {
             variables.add(song.getArtist());
         }
 
-        String message = Joiner.on(" ").join(parts).concat(" to my playlist!");
+        if (emptyToNull(song.getAlbum()) != null) {
+            parts.add("from the album `%s`");
+            variables.add(song.getAlbum());
+        }
+
+        String message = Joiner.on(" ").join(parts);
         bot.speak(String.format(message, variables.toArray(new String[]{})));
     }
 
     private Song getLastSong(List<Song> songs, String[] args) {
+        Integer songNumber = 0;
+
         if (args.length > 0) {
             try {
-                Integer songNumber = 0;
                 songNumber = Integer.parseInt(args[0]);
-                checkArgument(songNumber > 0, "Song number must be greater or equal to 1");
+                checkArgument(songNumber > 0, "Last number must be greater or equal to 1");
                 checkArgument(songNumber <= songs.size(), "There are only %s recently played songs", songs.size());
 
                 return bot.getRoom().getSongLog().getList().get(songNumber - 1);
@@ -87,6 +85,7 @@ public class AddSongCommand extends Command {
             }
         }
 
-        return bot.getRoom().getSongLog().getList().get(0);
+        songNumber = bot.getRoom().getCurrentSong() == null ? 0 : 1;
+        return bot.getRoom().getSongLog().getList().get(songNumber);
     }
 }

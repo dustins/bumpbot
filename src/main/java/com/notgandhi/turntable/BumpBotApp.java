@@ -1,11 +1,9 @@
-/*
+package com.notgandhi.turntable;/*
  * Copyright
  */
 
-import net.notgandhi.turntable.config.AppConfig;
+import com.notgandhi.turntable.config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.Environment;
 
 /**
  * Class Description

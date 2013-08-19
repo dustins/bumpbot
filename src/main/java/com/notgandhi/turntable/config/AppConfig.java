@@ -2,15 +2,15 @@
  * Copyright
  */
 
-package net.notgandhi.turntable.config;
+package com.notgandhi.turntable.config;
 
-import net.notgandhi.turntable.BumpBot;
-import net.notgandhi.turntable.commands.AddSongCommand;
-import net.notgandhi.turntable.commands.CurrentCommand;
-import net.notgandhi.turntable.commands.LastCommand;
-import net.notgandhi.turntable.commands.SkipCommand;
-import net.notgandhi.turntable.listeners.DJBuddyListener;
-import net.notgandhi.turntable.listeners.GreetingListener;
+import com.notgandhi.turntable.BumpBot;
+import com.notgandhi.turntable.commands.AddSongCommand;
+import com.notgandhi.turntable.commands.CurrentCommand;
+import com.notgandhi.turntable.commands.LastCommand;
+import com.notgandhi.turntable.commands.SkipCommand;
+import com.notgandhi.turntable.listeners.DJBuddyListener;
+import com.notgandhi.turntable.listeners.GreetingListener;
 import org.l3eta.tt.command.Command;
 import org.l3eta.tt.event.EventListener;
 import org.springframework.context.annotation.Bean;
