@@ -8,6 +8,7 @@ import net.notgandhi.turntable.BumpBot;
 import net.notgandhi.turntable.commands.AddSongCommand;
 import net.notgandhi.turntable.commands.CurrentCommand;
 import net.notgandhi.turntable.commands.LastCommand;
+import net.notgandhi.turntable.listeners.DJBuddyListener;
 import net.notgandhi.turntable.listeners.GreetingListener;
 import org.l3eta.tt.command.Command;
 import org.l3eta.tt.event.EventListener;
@@ -43,6 +44,11 @@ public class AppConfig {
     public GreetingListener greetingListener(Environment environment) {
         String ignoreID = environment.getProperty("userid");
         return new GreetingListener(ignoreID);
+    }
+
+    @Bean
+    public DJBuddyListener djBuddyListener() {
+        return new DJBuddyListener();
     }
 
     @Bean
