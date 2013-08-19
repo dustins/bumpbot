@@ -11,6 +11,7 @@ import org.l3eta.tt.Song;
 import org.l3eta.tt.User;
 import org.l3eta.tt.command.Command;
 import org.l3eta.tt.event.ChatEvent;
+import org.l3eta.tt.user.Rank;
 
 import java.util.List;
 
@@ -26,10 +27,11 @@ public class CurrentCommand extends Command {
 
     public CurrentCommand(String name) {
         super(name);
+        this.setRank(Rank.OWNER, Rank.MOD, Rank.USER);
     }
 
     public CurrentCommand() {
-        super(NAME);
+        this(NAME);
     }
 
     @Override

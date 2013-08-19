@@ -10,6 +10,7 @@ import org.l3eta.tt.Song;
 import org.l3eta.tt.User;
 import org.l3eta.tt.command.Command;
 import org.l3eta.tt.event.ChatEvent;
+import org.l3eta.tt.user.Rank;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class LastCommand extends Command {
 
     public LastCommand(String name) {
         super(name);
+        this.setRank(Rank.OWNER, Rank.MOD, Rank.USER);
     }
 
     public LastCommand() {
